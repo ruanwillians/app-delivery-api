@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  scheduler_queue:
+    image: rabbitmq:3-management
+    container_name: rabbitmq_management
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    environment:
+        - "RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}"
+        - "RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}"
+    restart: always
