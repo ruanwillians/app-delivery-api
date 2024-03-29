@@ -3,6 +3,9 @@
 /node_modules
 /build
 
+#init-database
+init-mongo.js
+
 # Logs
 logs
 *.log
