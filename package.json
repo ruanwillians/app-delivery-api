@@ -52,10 +52,10 @@
     "typescript": "^5.1.3"
   },
   "husky": {
-      "hooks": {
-        "pre-commit": "npm run lint && npm run format && npm run test && npm run commit"
-      }
-    },
+    "hooks": {
+      "pre-commit": "npm run lint && npm run format && npm run test && npm run commit"
+    }
+  },
   "jest": {
     "moduleFileExtensions": [
       "js",
@@ -73,5 +73,4 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
-
 }
