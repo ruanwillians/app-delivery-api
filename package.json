@@ -57,7 +57,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cd .husky && npm run pre-commit"
+      "pre-commit": "cd .husky && npm run pre-commit",
+      "pre-push": "semantic-release"
     }
   },
   "jest": {
