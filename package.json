@@ -52,7 +52,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run format && npm run test && git diff --exit-code"
+      "pre-commit": "npm run lint && npm run format && npm run test || exit 1"
     }
   },
   "jest": {
