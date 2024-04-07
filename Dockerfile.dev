@@ -1,0 +1,23 @@
+# Estágio de desenvolvimento
+FROM node:20-alpine AS development
+
+# Defina o diretório de trabalho dentro do contêiner
+WORKDIR /app
+
+# Copie os arquivos de package.json e package-lock.json para o diretório de trabalho
+COPY package.json package-lock.json ./
+
+# Instale as dependências do projeto usando npm
+RUN npm install
+
+# Copie o código-fonte para o diretório de trabalho
+COPY . .
+
+# Exponha a porta 3000 para a aplicação Nest.js (ajuste conforme necessário)
+EXPOSE 3000
+
+# Carregar as variáveis de ambiente do arquivo .env
+COPY .env .env
+
+# Comando para iniciar a aplicação em modo watch usando npm
+CMD ["npm", "run", "start:dev"]
