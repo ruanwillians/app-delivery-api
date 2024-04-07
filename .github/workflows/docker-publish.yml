@@ -9,11 +9,11 @@ on:
   schedule:
     - cron: '28 18 * * *'
   push:
-    branches: [ "master" ]
+    branches: ['master']
     # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+    tags: ['v*.*.*']
   pull_request:
-    branches: [ "master" ]
+    branches: ['master']
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -21,19 +21,30 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      # This is used to complete the identity challenge
-      # with sigstore/fulcio when running outside of PRs.
-      id-token: write
-
+    env:
+      MONGO_USERNAME: ${{ secrets.MONGO_USERNAME }}
+      MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+      MONGO_NAME: ${{ secrets.MONGO_NAME }}
+      MONGO_HOST: ${{ secrets.MONGO_HOST }}
+      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+      POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+      POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
     steps:
+      - name: Example Step
+        run: |
+          echo "MongoDB Username: $MONGO_USERNAME"
+          echo "MongoDB Password: $MONGO_PASSWORD"
+          echo "MongoDB Name: $MONGO_NAME"
+          echo "MongoDB Host: $MONGO_HOST"
+          echo "PostgreSQL User: $POSTGRES_USER"
+          echo "PostgreSQL Password: $POSTGRES_PASSWORD"
+          echo "PostgreSQL DB: $POSTGRES_DB"
+          echo "PostgreSQL Host: $POSTGRES_HOST"
+
       - name: Checkout repository
         uses: actions/checkout@v3
 

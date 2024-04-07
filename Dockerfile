@@ -10,5 +10,5 @@ FROM node:20-alpine
 WORKDIR /app
 COPY --from=builder /app ./
 EXPOSE 80
-COPY .env.prod .env
+# COPY .env.prod .env
 CMD ["npm", "run", "start:prod"]
