@@ -40,6 +40,7 @@ jobs:
       POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
       POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
+
     steps:
       - name: Example Step
         run: |
@@ -51,6 +52,7 @@ jobs:
           echo "PostgreSQL Password: $POSTGRES_PASSWORD"
           echo "PostgreSQL DB: $POSTGRES_DB"
           echo "PostgreSQL Host: $POSTGRES_HOST"
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -64,7 +66,7 @@ jobs:
 
       # Pull the Docker image
       - name: Pull Docker image
-        run: docker pull ${{env.REGISTRY}}/${{env.IMAGE_NAME}}:${{ steps.meta.outputs.tags }}
+        run: docker pull ${{env.REGISTRY}}/${{env.IMAGE_NAME}}
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
