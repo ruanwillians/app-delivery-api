@@ -64,7 +64,7 @@ jobs:
 
       # Pull the Docker image
       - name: Pull Docker image
-        run: docker pull ${REGISTRY}/${IMAGE_NAME}:${TAG}
+        run: docker pull ${{env.REGISTRY}}/${{env.IMAGE_NAME}}:${{ steps.meta.outputs.tags }}
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
