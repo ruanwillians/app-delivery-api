@@ -92,5 +92,5 @@ jobs:
         env:
           DOCKER_CLI_EXPERIMENTAL: enabled
       - run: |
-          docker tag ${{ steps.meta.outputs.image }} ${{ github.actor }}/${{ steps.meta.outputs.image_name }}:latest
+          docker tag ${{ steps.meta.outputs.image }} ${{ github.actor }}/${{ steps.meta.outputs.image_name }}:${{github.run_number}}
           docker push ${{ github.actor }}/${{ steps.meta.outputs.image_name }}:latest
