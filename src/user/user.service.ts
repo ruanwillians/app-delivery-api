@@ -50,7 +50,7 @@ export class UserService {
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+    return `This action updates a #${id}, ${updateUserDto} user`;
   }
 
   remove(id: number) {

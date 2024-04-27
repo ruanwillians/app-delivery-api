@@ -22,12 +22,7 @@ export class UserController {
 
   @Get()
   async findAll() {
-    try {
-      return await this.userService.findAll();
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
+    return await this.userService.findAll();
   }
 
   @Get(':id')
